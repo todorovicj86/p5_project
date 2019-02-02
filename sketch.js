@@ -1,30 +1,38 @@
+var positionX=0;
+var positionY=0;
+
+
 function setup() {
-	createCanvas(400, 300);
-	 
- }
+  createCanvas(400, 300);
 
- function draw() {
-	background(200);
+}
 
-	strokeWeight(2);
+function draw() {
 
-	fill(0,170,0);
-	rect(mouseX-50, mouseY-50, 100, 100);
+  background(200);
 
-	fill (255);
-	ellipse(mouseX-50+25, mouseY-50+30, 20, 20)
-	ellipse(mouseX-50+70, mouseY-50+30, 30, 30)
+  positionX=mouseX;
+  positionY=mouseY;
 
-	stroke(0);
-	line(mouseX-30, mouseY+30, mouseX+30, mouseY+30)
 
-	noStroke();
-	rect(mouseX-30, mouseY+18, 10, 10);
-	rect(mouseX+20, mouseY+18, 10, 10);
+  strokeWeight(4);
 
-	stroke(0);
-	translate(mouseX-60,mouseY-60);
-	fill(255,100,30);
-	triangle(0, 0, 0, 60, 60, 0);
+  fill(0,170,0);
+  rect(positionX-50, positionY-50, 100, 100);
 
+  fill (255);
+  ellipse(positionX-50+25, positionY-50+30, 20, 20)
+  ellipse(positionX-50+70, positionY-50+30, 30, 30)
+
+  stroke(0);
+  line(positionX-30, positionY+30, positionX+30, positionY+30)
+
+  noStroke();
+  rect(positionX-30, positionY+18, 10, 10);
+  rect(positionX+20, positionY+18, 10, 10);
+
+  stroke(0);
+  translate(positionX-60,positionY-60);
+  fill(255,100,30);
+  triangle(0, 0, 0, 60, 60, 0);
 }
