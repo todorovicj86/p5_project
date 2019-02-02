@@ -15,7 +15,6 @@ function draw() {
   nacrtajOci();
   nacrtajKapu();
 
-
   if (mouseIsPressed) {
     nacrtajUsta(true);
   } else {
@@ -30,10 +29,12 @@ function nacrtajTelo(x, y) {
 }
 
 function nacrtajKapu() {
+  push();
   stroke(0);
   translate(positionX - 60, positionY - 60);
   fill(255,100,30);
   triangle(0, 0, 0, 60, 60, 0);
+  pop();
 }
 
 function nacrtajOci() {
@@ -45,7 +46,7 @@ function nacrtajOci() {
 function nacrtajUsta(zatvorena) {
   if (zatvorena) {
     stroke(0);
-    line(positionX -30 , positionY + 30, positionX + 30, positionY + 30)
+    line(positionX - 30, positionY + 30, positionX + 30, positionY + 30)
   } else {
     noStroke();
     fill(255, 0, 0);
