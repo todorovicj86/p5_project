@@ -1,25 +1,32 @@
-var positionX = 0;
-var positionY = 0;
+var positionX = 50;
+var positionY = 50;
+
+var speedX=1;
+var speedY=0;
+
+var speedFactor=1;
+
 
 function setup() {
-  createCanvas(400, 300);
+  createCanvas(800, 600);
 }
 
 function draw() {
   background(200);
-
-  positionX = mouseX;
-  positionY = mouseY;
-
+  updatePosition();
   nacrtajTelo(positionX, positionY);
   nacrtajOci();
   nacrtajKapu();
-
   if (mouseIsPressed) {
     nacrtajUsta(true);
   } else {
     nacrtajUsta(false);
   }
+}
+
+function updatePosition(){
+  positionX = positionX+speedX*speedFactor;
+  positionY = positionY+speedY*speedFactor;
 }
 
 function nacrtajTelo(x, y) {
@@ -32,7 +39,7 @@ function nacrtajKapu() {
   push();
   stroke(0);
   translate(positionX - 60, positionY - 60);
-  fill(255,100,30);
+  fill(255, 100, 30);
   triangle(0, 0, 0, 60, 60, 0);
   pop();
 }
@@ -57,4 +64,21 @@ function nacrtajUsta(zatvorena) {
   noStroke();
   rect(positionX - 30, positionY + 18, 10, 10);
   rect(positionX + 20, positionY + 18, 10, 10);
+}
+
+function keyPressed() {
+  if (keyCode === LEFT_ARROW) {
+     speedX=-1;
+     speedY=0;
+  }else if(keyCode === RIGHT_ARROW){
+     speedX=1;
+     speedY=0;
+  }else if(keyCode === UP_ARROW){
+     speedX=0;
+     speedY=-1;
+  }else if(keyCode === DOWN_ARROW){
+     speedX=0;
+     speedY=1;
+  }
+
 }
